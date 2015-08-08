@@ -29,3 +29,5 @@ able to ping from dell after asigning static ip.  The dhcp doesn't seems to work
 
 next going to try to create boot debian vm and try dhcp directly.
 
+Using virtualbox is possible to pxe boot between vm to other vm. ( Running Mirantis Open Stack under vbox)
+
