@@ -31,3 +31,10 @@ next going to try to create boot debian vm and try dhcp directly.
 
 Using virtualbox is possible to pxe boot between vm to other vm. ( Running Mirantis Open Stack under vbox)
 
+setup virtualbox using 2 ethernet
+sudo dnsmasq --interface=eth1 --dhcp-range=192.168.1.101,192.168.1.199,255.255.255.0,1h --dhcp-boot=/tftp/pxelinux.0 --pxe-service=x86PC,"Install Linux",pxelinux --enable-tftp --tftp-root=/tftp --no-daemon
+
+Dell able to get ip and load pxelinux but stuck with Could not locate boot server
+Need to read up on uefi netboot
+
+
