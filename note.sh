@@ -38,6 +38,12 @@ Dell able to get ip and load pxelinux but stuck with Could not locate boot serve
 Need to read up on uefi netboot
 
 
+
+
+#Create new debian vm under vbox
+#Change eth0 to bridge
+#Add bridge network map to eth1
+
 sudo mkdir -p /var/lib/tftpboot
 sudo apt-get install di-netboot-assistant
 sudo /etc/init.d/tftpd-hpa stop
