@@ -38,3 +38,26 @@ Dell able to get ip and load pxelinux but stuck with Could not locate boot serve
 Need to read up on uefi netboot
 
 
+sudo mkdir -p /var/lib/tftpboot
+sudo apt-get install di-netboot-assistant
+sudo /etc/init.d/tftpd-hpa stop
+sudo /etc/init.d/dnsmasq stop
+sudo ifconfig eth1 192.168.1.2 netmask 255.255.255.0  # eth1 direct connect to dell
+sudo di-netboot-assistant install jessie
+cd /var/lib/tftpboot/debian-installer
+sudo ln -s jessie/amd64/
+sudo cp jessie/amd64/grub/grub.cfg jessie/amd64/grub/grub.cfg.bak
+sudo cp jessie/amd64/grub/grub.cfg.ORIG jessie/amd64/grub/grub.cfg
+sudo iptables -t nat -A POSTROUTING -j MASQUERADE  # So dell can go to the internet via eth1/mac
+
+sudo dnsmasq --interface=eth1 \
+             --dhcp-range=192.168.1.101,192.168.1.199,255.255.255.0,1h \
+             --dhcp-boot=debian-installer/jessie/amd64/bootnetx64.efi \
+             --pxe-service=x86PC,"Install Linux",pxelinux \
+             --enable-tftp --tftp-root=/var/lib/tftpboot \
+             --no-daemon
+             
+# Successfully net boot using uefi and install debian.
+# Going to work on preseed cfg
+
+
