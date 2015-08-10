@@ -65,5 +65,4 @@ sudo dnsmasq --interface=eth1 \
              
 # Successfully net boot using uefi and install debian.
 # Going to work on preseed cfg
-
-
+# using https://github.com/jedi4ever/veewee/blob/master/templates/Debian-8.0.0/preseed.cfg for start
