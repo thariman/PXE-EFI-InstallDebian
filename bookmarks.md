@@ -14,5 +14,7 @@ https://wiki.debian.org/PXEBootInstall
 
 https://www.mercianlabels.com/blog/2014/04/23/uefi-pxe-netboot-with-preseeded-configuration/
 
+https://github.com/ffuenf/vagrant-boxes
+
 
 
